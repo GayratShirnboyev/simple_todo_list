@@ -13,7 +13,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   TextEditingController task = TextEditingController();
-  List todoTask = [];
+  List<Widget> todoTask = [];
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -38,13 +38,17 @@ class _MyAppState extends State<MyApp> {
                   padding: EdgeInsets.all(10.0),
                   child: ElevatedButton(
                     child: Text('ADD'),
-                    onPressed: () => {print(task.text)},
+                    onPressed: () => {
+                      setState(() {
+                        todoTask.add(Text(task.text));
+                      })
+                    },
                   ),
                 )
               ],
             ),
             Column(
-              children: [Text('Text')],
+              children: todoTask,
             )
           ],
         )));
