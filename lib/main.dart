@@ -12,6 +12,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  TextEditingController task = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -23,6 +24,7 @@ class _MyAppState extends State<MyApp> {
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: TextField(
+                  controller: task,
                   decoration: InputDecoration(
                     label: Text('TEXT'),
                   ),
